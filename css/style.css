@@ -17,3 +17,102 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+
+/* গ্লোবাল রিসেট এবং ভেরিয়েবল */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --primary: #0047AB;
+    --secondary: #f4f7f6;
+    --text-dark: #333;
+    --text-light: #fff;
+}
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--secondary); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1; }
+
+/* Navbar */
+.navbar { background: var(--primary); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-light); }
+.logo { font-size: 1.5rem; font-weight: bold; }
+.nav-links { list-style: none; display: flex; gap: 1.5rem; }
+.nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { opacity: 0.8; }
+
+/* Footer */
+.footer { background: #222; color: #aaa; text-align: center; padding: 1rem; margin-top: auto; }
+
+/* Buttons */
+.btn-primary { background: var(--primary); color: white; padding: 10px 20px; text-decoration: none; border: none; border-radius: 5px; cursor: pointer; display: inline-block; }
+.btn-primary:hover { background: #003380; }
+.w-100 { width: 100%; }
+
+/* Hero Section (Home) */
+.hero-section { text-align: center; padding: 100px 20px; }
+.hero-section h1 { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+
+/* Login Box */
+.login-container { display: flex; justify-content: center; align-items: center; height: 100%; padding: 50px 0; }
+.login-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 350px; }
+.login-box h2 { text-align: center; margin-bottom: 20px; color: var(--primary); }
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.input-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+.error-text { color: red; text-align: center; margin-top: 10px; font-size: 0.9rem; }
+
+/* ফুটারের কন্টেইনারকে সবসময় নিচে রাখার জন্য */
+#footer-placeholder {
+    margin-top: auto;
+    width: 100%;
+}
+
+/* পুরো পেজের জন্য বেসিক স্টাইল */
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #f5f5f5; /* হালকা ধূসর পটভূমি */
+    font-family: sans-serif; /* বা আপনার পছন্দমতো ফন্ট */
+}
+
+/* কন্টেন্টটিকে পেজের কেন্দ্রে নিয়ে আসার জন্য */
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* উল্লম্বভাবে কেন্দ্রে */
+    height: 100%;
+}
+
+/* কন্টেন্ট কন্টেইনার (পাঠ্য এবং বোতাম) */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* অনুভূমিকভাবে কেন্দ্রে */
+    /* **প্রধান পরিবর্তন এখানে:** উল্লম্ব কেন্দ্র থেকে কন্টেন্টটিকে একটু উপরে নিয়ে যাওয়ার জন্য transform ব্যবহার করা হয়েছে। */
+    transform: translateY(-25%); /* উল্লম্ব কেন্দ্র থেকে ২৫% উপরে নিয়ে যান */
+}
+
+/* "Welcome to UniPortal" পাঠ্য */
+.welcome-title {
+    color: #1a4f9b; /* নীল রঙ */
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* বিবরণ পাঠ্য */
+.description-text {
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 2rem; /* বোতাম থেকে দূরত্ব বজায় রাখার জন্য */
+    text-align: center;
+}
+
+/* "Get Started" বোতাম */
+.get-started-button {
+    background-color: #1a4f9b; /* নীল বোতাম */
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px; /* গোলাকার কোণ */
+    text-decoration: none; /* লিংক আন্ডারলাইন সরানোর জন্য */
+    font-size: 1.2rem;
+    /* বোতামটি অনুভূমিকভাবে কেন্দ্রে রয়েছে কারণ কন্টেন্ট-কন্টেইনারের align-items: center ব্যবহার করা হয়েছে। */
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 101,
+    "name": "Dr. Hasan Mahmud",
+    "department": "Computer Science",
+    "designation": "Professor"
+  },
+  {
+    "id": 102,
+    "name": "Sarah Islam",
+    "department": "Physics",
+    "designation": "Lecturer"
+  }
+]
