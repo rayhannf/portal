@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Midterm Examination Schedule Published (Spring 2026)",
+        "category": "Exam",
+        "date": "July 28, 2026",
+        "author": "Office of the Controller of Examinations",
+        "description": "The routine for the upcoming Midterm Examinations for Spring 2026 has been published. Students are advised to check their respective department notice boards or download the schedule from the university portal."
+    },
+    {
+        "id": 2,
+        "title": "Tuition Fee Payment Deadline Extended",
+        "category": "Finance",
+        "date": "July 25, 2026",
+        "author": "Accounts Division",
+        "description": "The last date for paying the second installment of tuition fees without late fine has been extended up to August 10, 2026. Payments can be made online via the student portal."
+    },
+    {
+        "id": 3,
+        "title": "Registration Open for National Tech Fest 2026",
+        "category": "Event",
+        "date": "July 20, 2026",
+        "author": "Department of CSE & IT Club",
+        "description": "We are excited to announce that registration for 'National Tech Fest 2026' is now open. Competitions include Programming Contest, Hackathon, Robotics, and Project Showcase. Attractive prizes await the winners!"
+    },
+    {
+        "id": 4,
+        "title": "Campus Closure on Independence Day",
+        "category": "General",
+        "date": "March 24, 2026",
+        "author": "Registrar Office",
+        "description": "All academic and administrative activities of the university will remain closed on March 26, 2026, on the occasion of Independence Day. Regular classes will resume on the following working day."
+    },
+    {
+        "id": 5,
+        "title": "Library Books Return Reminder",
+        "category": "Academic",
+        "date": "July 15, 2026",
+        "author": "University Central Library",
+        "description": "Students who have borrowed books from the Central Library for the previous semester are requested to return or renew them within 7 days to avoid library fines."
+    }
+]

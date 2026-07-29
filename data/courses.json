@@ -1,0 +1,34 @@
+[
+    {
+        "id": "CSE-301",
+        "title": "Data Structures & Algorithms",
+        "credit": 3.0,
+        "teacher": "Dr. Hasan Mahmud",
+        "progress": 75,
+        "schedule": "Sun, Tue (10:00 AM)"
+    },
+    {
+        "id": "CSE-302",
+        "title": "Database Management Systems",
+        "credit": 3.0,
+        "teacher": "Sarah Islam",
+        "progress": 60,
+        "schedule": "Mon, Wed (11:30 AM)"
+    },
+    {
+        "id": "CSE-303",
+        "title": "Web Technologies",
+        "credit": 3.0,
+        "teacher": "Anisul Islam",
+        "progress": 90,
+        "schedule": "Sun, Wed (02:00 PM)"
+    },
+    {
+        "id": "CSE-304",
+        "title": "Computer Networks",
+        "credit": 3.0,
+        "teacher": "Prof. Abdur Razzak",
+        "progress": 45,
+        "schedule": "Tue, Thu (12:00 PM)"
+    }
+]

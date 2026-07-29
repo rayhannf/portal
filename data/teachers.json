@@ -1,14 +1,56 @@
 [
-  {
-    "id": 101,
-    "name": "Dr. Hasan Mahmud",
-    "department": "Computer Science",
-    "designation": "Professor"
-  },
-  {
-    "id": 102,
-    "name": "Sarah Islam",
-    "department": "Physics",
-    "designation": "Lecturer"
-  }
+    {
+        "id": 101,
+        "name": "Sadik Iqbal",
+        "designation": "Professor & Head",
+        "department": "Computer Science & Engineering",
+        "email": "sadik.iqbal@university.edu",
+        "phone": "+880 1711-001122",
+        "room": "Room 301, Academic Building-1"
+    },
+    {
+        "id": 102,
+        "name": "Mohammed Arifin Ahmed",
+        "designation": "Associate Professor",
+        "department": "Computer Science & Engineering",
+        "email": "mohammed.arifin@university.edu",
+        "phone": "+880 1711-001133",
+        "room": "Room 305, Academic Building-1"
+    },
+    {
+        "id": 103,
+        "name": "Tanvir Ahmed",
+        "designation": "Assistant Professor",
+        "department": "Computer Science & Engineering",
+        "email": "tanvir.ahmed@university.edu",
+        "phone": "+880 1711-001144",
+        "room": "Room 402, Academic Building-1"
+    },
+    {
+        "id": 104,
+        "name": "Mesbah Uddin Ahmed",
+        "designation": "Professor",
+        "department": "Electrical & Electronic Engineering",
+        "email": "mesbah.uddin@university.edu",
+        "phone": "+880 1711-001155",
+        "room": "Room 204, Academic Building-2"
+    },
+    {
+        "id": 105,
+        "name": "Akash Kumar Pal",
+        "designation": "Lecturer",
+        "department": "Computer Science & Engineering",
+        "email": "akash.kumar@university.edu",
+        "phone": "+880 1711-001166",
+        "room": "Room 410, Academic Building-1"
+    },
+    {
+        "id": 106,
+        "name": "Tariqul Islam",
+        "designation": "Associate Professor",
+        "department": "Mathematics",
+        "email": "tariqul.islam@university.edu",
+        "phone": "+880 1711-001177",
+        "room": "Room 105, Science Building"
+    }
 ]

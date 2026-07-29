@@ -59,11 +59,6 @@ main { flex: 1; }
 .input-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
 .error-text { color: red; text-align: center; margin-top: 10px; font-size: 0.9rem; }
 
-/* ফুটারের কন্টেইনারকে সবসময় নিচে রাখার জন্য */
-#footer-placeholder {
-    margin-top: auto;
-    width: 100%;
-}
 
 /* পুরো পেজের জন্য বেসিক স্টাইল */
 body, html {
@@ -115,4 +110,108 @@ body, html {
     text-decoration: none; /* লিংক আন্ডারলাইন সরানোর জন্য */
     font-size: 1.2rem;
     /* বোতামটি অনুভূমিকভাবে কেন্দ্রে রয়েছে কারণ কন্টেন্ট-কন্টেইনারের align-items: center ব্যবহার করা হয়েছে। */
+}
+
+/* ফুটার যেন সবসময় পেইজের একদম নিচে থাকে */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SPACE-BETWEEN REMOVAL FIX (মাঝখানের বড় গ্যাপ চিরতরে বন্ধ)
+========================================================= */
+.dashboard-main {
+    display: block !important; /* flex এবং space-between বাতিল করা হলো */
+    flex: 1;
+    padding: 20px 30px !important;
+}
+
+/* প্রোফাইল বা যেকোনো পেজের হেডিংয়ের নিচের গ্যাপ একদম ছোট রাখা হলো */
+.dashboard-header {
+    margin-bottom: 20px !important;
+}
+
+/* ================== ১. Navbar সবসময় উপরে Fixed রাখার জন্য ================== */
+#navbar-placeholder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* যেন সব কনটেন্টের উপরে থাকে */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar fixed করার কারণে পেজের কনটেন্ট যেন Navbar-এর নিচে না ঢুকে যায়, 
+   তাই বডিতে উপরের দিকে কিছুটা ফাঁকা (padding-top) দিতে হবে */
+body {
+    padding-top: 60px; /* তোমার Navbar-এর উচ্চতা অনুযায়ী কিছুটা জায়গা ছাড়া হলো */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* পুরো পেজের লেআউট যেন ফুটারকে সবসময় নিচে ঠেলে দেয় */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.dashboard-wrapper {
+    flex: 1 0 auto; /* কনটেন্ট শেষ হওয়া পর্যন্ত জায়গা নেবে */
+    padding-bottom: 30px; /* কার্ডের নিচে অতিরিক্ত কিছুটা জায়গা ছাড়বে */
+}
+
+/* =========================================================
+   FOOTER OVERLAP FIX (ফুটার আর কখনো কার্ড ঢাকবে না)
+========================================================= */
+#footer-placeholder {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important; /* Fixed বা Absolute ফোর্সফুলি বন্ধ করা হলো */
+    margin-top: auto !important;
+    clear: both !important;
+    z-index: 1 !important;
+}
+
+.footer {
+    position: relative !important; /* যেন স্ক্রিনের সাথে লেগে না থাকে */
+    width: 100% !important;
+    background: #1e293b !important;
+    color: #94a3b8 !important;
+    text-align: center;
+    padding: 12px 0 !important;
+    font-size: 0.85rem;
+    border-top: 1px solid #334155;
+}
+
+/* পুরো বডি যেন ফুটারকে সবসময় কনটেন্টের নিচে জায়গা দেয় */
+body {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    overflow-x: hidden;
+}
+
+.dashboard-wrapper {
+    flex: 1 0 auto !important;
+    width: 100%;
+}
+
+
+/* ৩. স্ট্যাটাস কার্ডের (CGPA, Credits...) উপরের ও নিচের গ্যাপ কমানো */
+.stats-grid {
+    margin-top: 10px !important;
+    margin-bottom: 15px !important;
+    padding: 0 !important;
+    gap: 15px !important;
+}
+
+/* ৪. নিচের Today's Classes ও Notices-এর উপরের গ্যাপ কমানো */
+.dashboard-widgets {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }

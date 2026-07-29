@@ -1,0 +1,56 @@
+[
+    {
+        "day": "Sunday",
+        "time": "10:00 AM - 11:30 AM",
+        "course": "Data Structures & Algorithms",
+        "code": "CSE-301",
+        "room": "Room 302, AB-1",
+        "teacher": "Dr. Hasan Mahmud",
+        "type": "Theory"
+    },
+    {
+        "day": "Sunday",
+        "time": "02:00 PM - 04:30 PM",
+        "course": "Database Management Systems (Lab)",
+        "code": "CSE-302L",
+        "room": "Computer Lab-02",
+        "teacher": "Sarah Islam",
+        "type": "Lab"
+    },
+    {
+        "day": "Monday",
+        "time": "11:30 AM - 01:00 PM",
+        "course": "Web Technologies",
+        "code": "CSE-303",
+        "room": "Room 405, AB-1",
+        "teacher": "Anisul Islam",
+        "type": "Theory"
+    },
+    {
+        "day": "Tuesday",
+        "time": "10:00 AM - 11:30 AM",
+        "course": "Data Structures & Algorithms",
+        "code": "CSE-301",
+        "room": "Room 302, AB-1",
+        "teacher": "Dr. Hasan Mahmud",
+        "type": "Theory"
+    },
+    {
+        "day": "Wednesday",
+        "time": "12:00 PM - 01:30 PM",
+        "course": "Computer Networks",
+        "code": "CSE-304",
+        "room": "Room 204, AB-2",
+        "teacher": "Prof. Abdur Razzak",
+        "type": "Theory"
+    },
+    {
+        "day": "Thursday",
+        "time": "02:00 PM - 04:30 PM",
+        "course": "Web Technologies (Lab)",
+        "code": "CSE-303L",
+        "room": "Web Lab-01",
+        "teacher": "Anisul Islam",
+        "type": "Lab"
+    }
+]
