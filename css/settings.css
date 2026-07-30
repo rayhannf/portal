@@ -1,0 +1,169 @@
+/* =========================================================
+   MATERIAL YOU (MATERIAL 3) - SETTINGS PAGE STYLES
+========================================================= */
+
+.m3-settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+/* Material 3 28px Settings Card */
+.m3-settings-card {
+    background-color: var(--md-surface-card, #FFFFFF);
+    border: 1px solid var(--md-outline-variant, #C4C6CF);
+    border-radius: var(--md-radius-xl, 28px);
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.m3-card-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.m3-card-header h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--md-on-surface, #1A1C1E);
+    margin: 0 0 6px 0;
+}
+
+.m3-card-header p {
+    font-size: 0.9rem;
+    color: var(--md-on-surface-variant, #44474F);
+    margin: 0;
+}
+
+/* Material Floating Label Input Groups */
+.m3-settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.m3-input-group {
+    position: relative;
+    width: 100%;
+}
+
+.m3-input-group input {
+    width: 100%;
+    padding: 18px 16px 6px 16px;
+    height: 56px;
+    font-size: 1rem;
+    color: var(--md-on-surface, #1A1C1E);
+    background-color: #F8FAFC;
+    border: 2px solid #E2E8F0;
+    border-radius: 16px;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.m3-input-group input:hover {
+    background-color: #F1F5F9;
+}
+
+.m3-input-group input:focus {
+    background-color: #FFFFFF;
+    border-color: var(--md-primary, #00589B);
+}
+
+/* Floating Label Animation */
+.m3-input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+.m3-input-group input:focus ~ label,
+.m3-input-group input:not(:placeholder-shown) ~ label {
+    top: 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--md-primary, #00589B);
+}
+
+/* Message Text */
+.m3-message-text {
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+/* Form Buttons */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6px;
+}
+
+.m3-btn-primary {
+    background-color: var(--md-primary, #00589B);
+    color: #FFFFFF;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 88, 155, 0.25);
+    transition: all 0.2s ease;
+}
+
+.m3-btn-primary:hover {
+    background-color: #004880;
+    transform: translateY(-1px);
+}
+
+/* Preference Toggles */
+.m3-preference-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preference-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #F1F5F9;
+}
+
+.preference-item:last-child {
+    border-bottom: none;
+}
+
+.preference-item strong {
+    font-size: 1rem;
+    color: var(--md-on-surface, #1A1C1E);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.preference-item p {
+    font-size: 0.85rem;
+    color: #64748B;
+    margin: 0;
+}
+
+/* Simple Checkbox switch */
+.m3-switch {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: var(--md-primary, #00589B);
+}

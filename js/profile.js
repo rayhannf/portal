@@ -6,9 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ২. LocalStorage থেকে ইউজারের নাম নেওয়া
-    const userName = localStorage.getItem('userName');
-    if (userName && document.getElementById('sidebar-name')) {
-        document.getElementById('sidebar-name').innerText = userName;
+    const userName = localStorage.getItem('userName') || "Abdur Rahman";
+
+    // সাইডবারে ইউজারের নাম বসানো
+    const sidebarName = document.getElementById('sidebar-name');
+    if (sidebarName) {
+        sidebarName.innerText = userName;
     }
 
     // ৩. students.json থেকে ইউজারের বিস্তারিত তথ্য লোড করা
@@ -19,24 +22,48 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentStudent = students.find(s => s.name === userName) || students[0];
 
             if (currentStudent) {
-                // টপ কার্ডের তথ্য বসানো
-                document.getElementById('profile-name').innerText = currentStudent.name || "Student Name";
-                document.getElementById('profile-id').innerText = `ID: ${currentStudent.id || "N/A"}`;
-                document.getElementById('profile-dept').innerText = currentStudent.department || "University Department";
+                // টপ হিরো কার্ডের (Banner) তথ্য বসানো
+                const profileFullName = document.getElementById('profile-full-name');
+                if (profileFullName) profileFullName.innerText = currentStudent.name || userName;
+
+                // যদি তোমার HTML-এ এই আইডিগুলো থাকে, তবে সেগুলোতেও ডেটা বসবে:
+                if (document.getElementById('profile-id')) {
+                    document.getElementById('profile-id').innerText = `ID: ${currentStudent.id || "2026-CS-101"}`;
+                }
+                if (document.getElementById('profile-dept')) {
+                    document.getElementById('profile-dept').innerText = currentStudent.department || "Computer Science & Engineering";
+                }
 
                 // পার্সোনাল ইনফরমেশন বসানো
-                document.getElementById('profile-email').innerText = currentStudent.email || "N/A";
-                document.getElementById('profile-phone').innerText = currentStudent.phone || "N/A";
-                document.getElementById('profile-blood').innerText = currentStudent.bloodGroup || "N/A";
-                document.getElementById('profile-address').innerText = currentStudent.address || "N/A";
+                if (document.getElementById('profile-email')) {
+                    document.getElementById('profile-email').innerText = currentStudent.email || "abdur.rahman@university.edu";
+                }
+                if (document.getElementById('profile-phone')) {
+                    document.getElementById('profile-phone').innerText = currentStudent.phone || "+880 1711-223344";
+                }
+                if (document.getElementById('profile-blood')) {
+                    document.getElementById('profile-blood').innerText = currentStudent.bloodGroup || "O+";
+                }
+                if (document.getElementById('profile-address')) {
+                    document.getElementById('profile-address').innerText = currentStudent.address || "Dhaka, Bangladesh";
+                }
 
                 // একাডেমিক ইনফরমেশন বসানো
-                document.getElementById('profile-program').innerText = currentStudent.program || "N/A";
-                document.getElementById('profile-semester').innerText = currentStudent.semester || "N/A";
-                document.getElementById('profile-cgpa').innerText = currentStudent.cgpa || "N/A";
+                if (document.getElementById('profile-program')) {
+                    document.getElementById('profile-program').innerText = currentStudent.program || "B.Sc. in Computer Science";
+                }
+                if (document.getElementById('profile-semester')) {
+                    document.getElementById('profile-semester').innerText = currentStudent.semester || "6th Semester";
+                }
+                if (document.getElementById('profile-cgpa')) {
+                    document.getElementById('profile-cgpa').innerText = currentStudent.cgpa || "3.75";
+                }
             }
         })
         .catch(error => {
             console.error("Error loading profile data:", error);
+            // JSON লোড না হলেও যেন অন্তত ইউজারের নামটা হিরো কার্ডে দেখায়
+            const profileFullName = document.getElementById('profile-full-name');
+            if (profileFullName) profileFullName.innerText = userName;
         });
 });

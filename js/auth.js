@@ -63,3 +63,38 @@ if (loginForm) {
             .catch(error => console.error("Error:", error));
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("loginForm");
+    const errorMessage = document.getElementById("error-message");
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // ফর্ম রিলোড হওয়া বন্ধ করবে
+
+            const usernameInput = document.getElementById("username").value.trim();
+            const passwordInput = document.getElementById("password").value.trim();
+
+            // ১. LocalStorage থেকে সেভ থাকা পাসওয়ার্ড চেক করা (না থাকলে ডিফল্ট 'pass123')
+            const storedPassword = localStorage.getItem("userPassword") || "pass123";
+
+            // ২. ইউজারনেম ও পাসওয়ার্ড মিলিয়ে দেখা
+            if (usernameInput === "student01" && passwordInput === storedPassword) {
+                // এরর মেসেজ লুকিয়ে ফেলা
+                if (errorMessage) errorMessage.style.display = "none";
+
+                // লগিন সেশন সেভ করা
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("userName", "Abdur Rahman");
+
+                // ড্যাশবোর্ডে রিডাইরেক্ট করা
+                window.location.href = "dashboard.html";
+            } else {
+                // ভুল হলে সুন্দর এরর মেসেজ দেখানো
+                if (errorMessage) {
+                    errorMessage.style.display = "block";
+                }
+            }
+        });
+    }
+});

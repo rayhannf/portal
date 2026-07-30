@@ -1,0 +1,144 @@
+/* =========================================================
+   MATERIAL YOU (MATERIAL 3) - TEACHERS PAGE STYLES
+========================================================= */
+
+/* Teachers Grid Layout */
+.m3-teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+/* Material 3 28px Teacher Card */
+.m3-teacher-card {
+    background-color: var(--md-surface-card, #FFFFFF);
+    border: 1px solid var(--md-outline-variant, #C4C6CF);
+    border-radius: var(--md-radius-xl, 28px);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.m3-teacher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: var(--md-primary, #00589B);
+}
+
+.teacher-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.teacher-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 22px;
+    background-color: var(--md-primary-container, #D7E2FF);
+    font-size: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.m3-dept-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: rgba(0, 88, 155, 0.08);
+    color: var(--md-primary, #00589B);
+    padding: 6px 14px;
+    border-radius: 100px;
+}
+
+.teacher-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--md-on-surface, #1A1C1E);
+    margin: 0 0 6px 0;
+}
+
+.teacher-designation {
+    font-size: 0.9rem;
+    color: var(--md-on-surface-variant, #44474F);
+    margin: 0 0 20px 0;
+    font-weight: 500;
+}
+
+/* Info List (Courses & Room) */
+.teacher-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px dashed #E2E8F0;
+    padding-top: 16px;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+}
+
+.info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.info-row span {
+    color: #64748B;
+    font-size: 0.8rem;
+}
+
+.info-row strong {
+    color: #1E293B;
+    font-weight: 600;
+}
+
+/* Teacher Card Buttons */
+.teacher-card-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.m3-btn-tonal-sm {
+    flex: 1;
+    text-align: center;
+    background-color: var(--md-secondary-container, #D7E3F8);
+    color: var(--md-on-secondary-container, #101C2B);
+    padding: 10px 16px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.m3-btn-tonal-sm:hover {
+    background-color: #C3D3ED;
+}
+
+.m3-btn-primary-sm {
+    flex: 1;
+    text-align: center;
+    background-color: var(--md-primary, #00589B);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 88, 155, 0.2);
+    transition: all 0.2s ease;
+}
+
+.m3-btn-primary-sm:hover {
+    background-color: #004880;
+    transform: translateY(-1px);
+}

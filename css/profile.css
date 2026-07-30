@@ -1,0 +1,168 @@
+/* =========================================================
+   MATERIAL YOU (MATERIAL 3) - PROFILE PAGE STYLES
+========================================================= */
+
+/* Hero Banner Card */
+.m3-profile-hero {
+    background-color: var(--md-surface-card);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-radius-xl); /* 28px Curve */
+    padding: 32px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: var(--md-elevation-1);
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ব্যানারের বাম পাশে হালকা নীল বর্ডার অ্যাকসেন্ট */
+.m3-profile-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 8px;
+    background-color: var(--md-primary);
+}
+
+.profile-hero-avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 24px;
+    background-color: var(--md-primary-container);
+    font-size: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--md-elevation-1);
+}
+
+.profile-hero-info {
+    flex: 1;
+    min-width: 220px;
+}
+
+.profile-hero-info h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--md-on-surface);
+    margin: 0 0 8px 0;
+}
+
+.m3-id-pill {
+    display: inline-block;
+    background-color: #E0F2FE;
+    color: #0369A1;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--md-radius-pill);
+    margin-bottom: 8px;
+}
+
+.profile-hero-info p {
+    color: var(--md-on-surface-variant);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* 2 Column Profile Grid */
+.m3-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+/* Material 3 Info Card */
+.m3-profile-card {
+    background-color: var(--md-surface-card);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-radius-xl);
+    padding: 28px;
+    box-shadow: var(--md-elevation-1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.m3-profile-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--md-elevation-2);
+    border-color: var(--md-primary);
+}
+
+.m3-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.m3-card-header h3 {
+    font-size: 1.2rem;
+    color: var(--md-on-surface);
+    margin: 0;
+    font-weight: 700;
+}
+
+.m3-header-badge {
+    background-color: #E0F2FE;
+    color: #0369A1;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--md-radius-pill);
+}
+
+/* Information List */
+.m3-info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.m3-info-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: var(--md-radius-sm);
+    transition: background-color 0.2s;
+}
+
+.m3-info-list li:hover {
+    background-color: #F8FAFC;
+}
+
+.info-label {
+    font-size: 0.9rem;
+    color: var(--md-on-surface-variant);
+    font-weight: 600;
+}
+
+.info-value {
+    font-size: 0.95rem;
+    color: var(--md-on-surface);
+    font-weight: 600;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .m3-profile-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-hero-action {
+        width: 100%;
+    }
+    .profile-hero-action button {
+        width: 100%;
+    }
+}

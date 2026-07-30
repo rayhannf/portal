@@ -1,208 +1,328 @@
-/* গ্লোবাল রিসেট */
-* {
+/* =========================================================
+   1. MATERIAL 3 (MATERIAL YOU) GLOBAL DESIGN TOKENS
+========================================================= */
+:root {
+    /* Primary Palette - University Ocean Blue */
+    --md-primary: #00589B;
+    --md-on-primary: #FFFFFF;
+    --md-primary-container: #D7E2FF;
+    --md-on-primary-container: #001A40;
+
+    /* Secondary Palette */
+    --md-secondary: #535F70;
+    --md-on-secondary: #FFFFFF;
+    --md-secondary-container: #D7E3F8;
+    --md-on-secondary-container: #101C2B;
+
+    /* Surfaces & Backgrounds */
+    --md-background: #FAF8FF;
+    --md-on-background: #1A1C1E;
+    --md-surface: #FAF8FF;
+    --md-on-surface: #1A1C1E;
+    --md-surface-variant: #E1E2EC;
+    --md-on-surface-variant: #44474F;
+    --md-surface-card: #FFFFFF;
+
+    /* Outlines & Borders */
+    --md-outline: #74777F;
+    --md-outline-variant: #C4C6CF;
+
+    /* Material 3 Corner Radius Tokens */
+    --md-radius-sm: 8px;
+    --md-radius-md: 16px;
+    --md-radius-lg: 24px;
+    --md-radius-xl: 28px;
+    --md-radius-pill: 100px;
+
+    /* M3 Elevation Shadows */
+    --md-elevation-1: 0 1px 3px rgba(0, 88, 155, 0.08), 0 1px 2px rgba(0, 88, 155, 0.06);
+    --md-elevation-2: 0 4px 12px rgba(0, 88, 155, 0.12);
+    --md-elevation-3: 0 8px 24px rgba(0, 88, 155, 0.16);
+
+    /* State Layers */
+    --md-state-hover: rgba(0, 88, 155, 0.08);
+    --md-state-focus: rgba(0, 88, 155, 0.12);
+}
+
+/* =========================================================
+   2. GLOBAL RESET & BASE LAYOUT
+========================================================= */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* কমন ভেরিয়েবল (কালার প্যালেট) */
-:root {
-    --primary-color: #0047AB; /* ইউনিভার্সিটির নীল রঙ */
-    --bg-color: #F4F7F6;
-    --text-color: #333333;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-/* গ্লোবাল রিসেট এবং ভেরিয়েবল */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-    --primary: #0047AB;
-    --secondary: #f4f7f6;
-    --text-dark: #333;
-    --text-light: #fff;
-}
-
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--secondary); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; }
-main { flex: 1; }
-
-/* Navbar */
-.navbar { background: var(--primary); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-light); }
-.logo { font-size: 1.5rem; font-weight: bold; }
-.nav-links { list-style: none; display: flex; gap: 1.5rem; }
-.nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: 0.3s; }
-.nav-links a:hover { opacity: 0.8; }
-
-/* Footer */
-.footer { background: #222; color: #aaa; text-align: center; padding: 1rem; margin-top: auto; }
-
-/* Buttons */
-.btn-primary { background: var(--primary); color: white; padding: 10px 20px; text-decoration: none; border: none; border-radius: 5px; cursor: pointer; display: inline-block; }
-.btn-primary:hover { background: #003380; }
-.w-100 { width: 100%; }
-
-/* Hero Section (Home) */
-.hero-section { text-align: center; padding: 100px 20px; }
-.hero-section h1 { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
-
-/* Login Box */
-.login-container { display: flex; justify-content: center; align-items: center; height: 100%; padding: 50px 0; }
-.login-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 350px; }
-.login-box h2 { text-align: center; margin-bottom: 20px; color: var(--primary); }
-.input-group { margin-bottom: 15px; }
-.input-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-.input-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
-.error-text { color: red; text-align: center; margin-top: 10px; font-size: 0.9rem; }
-
-
-/* পুরো পেজের জন্য বেসিক স্টাইল */
 body, html {
     height: 100%;
     margin: 0;
-    background-color: #f5f5f5; /* হালকা ধূসর পটভূমি */
-    font-family: sans-serif; /* বা আপনার পছন্দমতো ফন্ট */
+    background-color: var(--md-background) !important;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--md-on-background);
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    padding-top: 64px !important; /* M3 Top App Bar Height */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* কন্টেন্টটিকে পেজের কেন্দ্রে নিয়ে আসার জন্য */
-.landing-page {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* উল্লম্বভাবে কেন্দ্রে */
-    height: 100%;
+main {
+    flex: 1 0 auto;
 }
-
-/* কন্টেন্ট কন্টেইনার (পাঠ্য এবং বোতাম) */
-.content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* অনুভূমিকভাবে কেন্দ্রে */
-    /* **প্রধান পরিবর্তন এখানে:** উল্লম্ব কেন্দ্র থেকে কন্টেন্টটিকে একটু উপরে নিয়ে যাওয়ার জন্য transform ব্যবহার করা হয়েছে। */
-    transform: translateY(-25%); /* উল্লম্ব কেন্দ্র থেকে ২৫% উপরে নিয়ে যান */
-}
-
-/* "Welcome to UniPortal" পাঠ্য */
-.welcome-title {
-    color: #1a4f9b; /* নীল রঙ */
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
-
-/* বিবরণ পাঠ্য */
-.description-text {
-    color: #555;
-    font-size: 1.2rem;
-    margin-bottom: 2rem; /* বোতাম থেকে দূরত্ব বজায় রাখার জন্য */
-    text-align: center;
-}
-
-/* "Get Started" বোতাম */
-.get-started-button {
-    background-color: #1a4f9b; /* নীল বোতাম */
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 5px; /* গোলাকার কোণ */
-    text-decoration: none; /* লিংক আন্ডারলাইন সরানোর জন্য */
-    font-size: 1.2rem;
-    /* বোতামটি অনুভূমিকভাবে কেন্দ্রে রয়েছে কারণ কন্টেন্ট-কন্টেইনারের align-items: center ব্যবহার করা হয়েছে। */
-}
-
-/* ফুটার যেন সবসময় পেইজের একদম নিচে থাকে */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 
 /* =========================================================
-   SPACE-BETWEEN REMOVAL FIX (মাঝখানের বড় গ্যাপ চিরতরে বন্ধ)
+   3. MATERIAL 3 NAVBAR (TOP APP BAR)
 ========================================================= */
-.dashboard-main {
-    display: block !important; /* flex এবং space-between বাতিল করা হলো */
-    flex: 1;
-    padding: 20px 30px !important;
-}
-
-/* প্রোফাইল বা যেকোনো পেজের হেডিংয়ের নিচের গ্যাপ একদম ছোট রাখা হলো */
-.dashboard-header {
-    margin-bottom: 20px !important;
-}
-
-/* ================== ১. Navbar সবসময় উপরে Fixed রাখার জন্য ================== */
-#navbar-placeholder {
-    position: fixed;
+#navbar-placeholder,
+.navbar {
+    position: fixed !important;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 9999; /* যেন সব কনটেন্টের উপরে থাকে */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Navbar fixed করার কারণে পেজের কনটেন্ট যেন Navbar-এর নিচে না ঢুকে যায়, 
-   তাই বডিতে উপরের দিকে কিছুটা ফাঁকা (padding-top) দিতে হবে */
-body {
-    padding-top: 60px; /* তোমার Navbar-এর উচ্চতা অনুযায়ী কিছুটা জায়গা ছাড়া হলো */
+    height: 64px;
+    background-color: var(--md-surface-card) !important;
+    border-bottom: 1px solid var(--md-outline-variant);
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+    z-index: 9999 !important;
+    box-shadow: var(--md-elevation-1);
 }
 
-/* পুরো পেজের লেআউট যেন ফুটারকে সবসময় নিচে ঠেলে দেয় */
-body {
+.logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--md-primary);
+    text-decoration: none;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    align-items: center;
+    gap: 10px;
 }
 
-.dashboard-wrapper {
-    flex: 1 0 auto; /* কনটেন্ট শেষ হওয়া পর্যন্ত জায়গা নেবে */
-    padding-bottom: 30px; /* কার্ডের নিচে অতিরিক্ত কিছুটা জায়গা ছাড়বে */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--md-on-surface-variant);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: var(--md-radius-pill);
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+    background-color: var(--md-state-hover);
+    color: var(--md-primary);
+}
+
+.nav-links a.active {
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
 }
 
 /* =========================================================
-   FOOTER OVERLAP FIX (ফুটার আর কখনো কার্ড ঢাকবে না)
+   4. MATERIAL 3 FOOTER (FOOTER OVERLAP FIX)
 ========================================================= */
 #footer-placeholder {
     display: block !important;
     width: 100% !important;
-    position: relative !important; /* Fixed বা Absolute ফোর্সফুলি বন্ধ করা হলো */
+    position: relative !important;
     margin-top: auto !important;
     clear: both !important;
     z-index: 1 !important;
 }
 
 .footer {
-    position: relative !important; /* যেন স্ক্রিনের সাথে লেগে না থাকে */
+    position: relative !important;
     width: 100% !important;
-    background: #1e293b !important;
-    color: #94a3b8 !important;
+    background-color: var(--md-surface-variant) !important;
+    color: var(--md-on-surface-variant) !important;
     text-align: center;
-    padding: 12px 0 !important;
+    padding: 16px 0 !important;
     font-size: 0.85rem;
-    border-top: 1px solid #334155;
+    font-weight: 500;
+    border-top: 1px solid var(--md-outline-variant);
 }
 
-/* পুরো বডি যেন ফুটারকে সবসময় কনটেন্টের নিচে জায়গা দেয় */
-body {
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: 100vh !important;
-    overflow-x: hidden;
+/* =========================================================
+   5. MATERIAL 3 BUTTONS
+========================================================= */
+.btn-primary {
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
+    padding: 12px 28px;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--md-radius-pill);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: var(--md-elevation-1);
+    transition: all 0.2s ease;
 }
 
-.dashboard-wrapper {
-    flex: 1 0 auto !important;
+.btn-primary:hover {
+    background-color: #004880;
+    box-shadow: var(--md-elevation-2);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+.w-100 {
     width: 100%;
 }
 
+/* =========================================================
+   6. HERO & LANDING PAGE (WELCOME SECTION)
+========================================================= */
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+}
 
-/* ৩. স্ট্যাটাস কার্ডের (CGPA, Credits...) উপরের ও নিচের গ্যাপ কমানো */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-15%);
+    text-align: center;
+    padding: 0 20px;
+}
+
+.welcome-title,
+.hero-section h1 {
+    color: var(--md-primary);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.description-text {
+    color: var(--md-on-surface-variant);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.get-started-button {
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
+    padding: 14px 32px;
+    border-radius: var(--md-radius-pill);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: var(--md-elevation-2);
+    transition: all 0.2s ease;
+}
+
+.get-started-button:hover {
+    background-color: #004880;
+    box-shadow: var(--md-elevation-3);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   7. MATERIAL 3 LOGIN BOX
+========================================================= */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    padding: 40px 20px;
+}
+
+.login-box {
+    background: var(--md-surface-card);
+    padding: 36px 30px;
+    border-radius: var(--md-radius-xl);
+    box-shadow: var(--md-elevation-2);
+    border: 1px solid var(--md-outline-variant);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--md-primary);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--md-on-surface-variant);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #F1F5F9;
+    border: 2px solid transparent;
+    border-radius: var(--md-radius-sm);
+    font-size: 1rem;
+    color: var(--md-on-surface);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+    background-color: var(--md-surface-card);
+    border-color: var(--md-primary);
+}
+
+.error-text {
+    color: #DC2626;
+    background-color: #FEF2F2;
+    border: 1px solid #FECACA;
+    padding: 10px;
+    border-radius: var(--md-radius-sm);
+    text-align: center;
+    margin-top: 14px;
+    font-size: 0.85rem;
+}
+
+/* =========================================================
+   8. DASHBOARD COMPACT LAYOUT & FIXES
+========================================================= */
+.dashboard-wrapper {
+    flex: 1 0 auto !important;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.dashboard-main {
+    display: block !important;
+    flex: 1;
+    padding: 20px 30px !important;
+}
+
+.dashboard-header {
+    margin-bottom: 20px !important;
+}
+
 .stats-grid {
     margin-top: 10px !important;
     margin-bottom: 15px !important;
@@ -210,8 +330,211 @@ body {
     gap: 15px !important;
 }
 
-/* ৪. নিচের Today's Classes ও Notices-এর উপরের গ্যাপ কমানো */
 .dashboard-widgets {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
+}
+
+/* =========================================================
+   1. MATERIAL 3 FIXED TOP APP BAR (NAVBAR)
+========================================================= */
+.m3-navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 68px;
+    background-color: var(--md-surface-card, #FFFFFF) !important;
+    border-bottom: 1px solid var(--md-outline-variant, #C4C6CF);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 88, 155, 0.05);
+}
+
+.logo-icon {
+    background-color: var(--md-primary-container, #D7E2FF);
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.3rem;
+}
+
+.logo-text {
+    font-weight: 800;
+    color: var(--md-primary, #00589B);
+    font-size: 1.35rem;
+    letter-spacing: -0.5px;
+}
+
+/* Navbar Right Buttons */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.m3-nav-pill {
+    color: var(--md-on-surface-variant, #44474F);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+}
+
+.m3-nav-pill:hover {
+    background-color: rgba(0, 88, 155, 0.08);
+    color: var(--md-primary, #00589B);
+}
+
+.m3-logout-btn {
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+}
+
+.m3-logout-btn:hover {
+    background-color: #FECACA;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   2. MATERIAL 3 FIXED SIDEBAR (NAVIGATION DRAWER)
+   স্ক্রোল করলেও সাইডবার একদম জায়গায় ফিক্সড থাকবে!
+========================================================= */
+.m3-sidebar {
+    position: fixed !important;
+    top: 68px; /* Navbar-এর ঠিক নিচ থেকে শুরু হবে */
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 68px); /* পুরো স্ক্রিন জুড়ে থাকবে */
+    background-color: var(--md-surface-card, #FFFFFF);
+    border-right: 1px solid var(--md-outline-variant, #C4C6CF);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* সাইডবারের আইটেম বেশি হলে শুধু সাইডবার স্ক্রোল হবে */
+    z-index: 900;
+}
+
+/* Sidebar User Header Card */
+.m3-sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    background-color: var(--md-primary-container, #D7E2FF);
+    border-radius: 20px;
+    margin-bottom: 24px;
+}
+
+.m3-sidebar-avatar {
+    width: 48px;
+    height: 48px;
+    background-color: var(--md-surface-card, #FFFFFF);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.m3-sidebar-user h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--md-on-primary-container, #001A40);
+    margin: 0 0 4px 0;
+}
+
+.m3-sidebar-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: rgba(0, 26, 64, 0.1);
+    color: var(--md-on-primary-container, #001A40);
+    padding: 2px 8px;
+    border-radius: 100px;
+}
+
+/* Sidebar Menu Items (Capsule Pill Style) */
+.m3-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--md-outline, #74777F);
+    letter-spacing: 1px;
+    padding: 0 16px 8px 16px;
+}
+
+.m3-sidebar-menu a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    border-radius: 100px !important; /* 100px Capsule Pill */
+    color: var(--md-on-surface-variant, #44474F);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.m3-sidebar-menu a:hover {
+    background-color: rgba(0, 88, 155, 0.08);
+    color: var(--md-primary, #00589B);
+    transform: translateX(4px);
+}
+
+/* Active Menu Page Style */
+.m3-sidebar-menu a.active {
+    background-color: var(--md-primary-container, #D7E2FF) !important;
+    color: var(--md-on-primary-container, #001A40) !important;
+    font-weight: 800;
+}
+
+/* =========================================================
+   3. MAIN CONTENT ADJUSTMENT (সাইডবারের পাশে জায়গা ছাড়া)
+========================================================= */
+.dashboard-main {
+    margin-left: 280px !important; /* সাইডবার 280px জায়গা নেবে, তাই মেইন পেজ ডানপাশে সরে যাবে */
+    padding: 28px 36px !important;
+    width: calc(100% - 280px) !important;
+    min-height: calc(100vh - 68px);
+}
+
+/* =========================================================
+   ACTIVE MENU HIGHLIGHT STYLE (M3 PILL)
+========================================================= */
+/* সাইডবারের অ্যাক্টিভ মেনু */
+.m3-sidebar-menu a.active {
+    background-color: var(--md-primary-container, #D7E2FF) !important;
+    color: var(--md-on-primary-container, #001A40) !important;
+    font-weight: 800 !important;
+    box-shadow: 0 1px 3px rgba(0, 88, 155, 0.1);
+}
+
+/* নেভবারের অ্যাক্টিভ মেনু */
+.m3-nav-pill.active {
+    background-color: var(--md-primary-container, #D7E2FF) !important;
+    color: var(--md-on-primary-container, #001A40) !important;
+    font-weight: 800 !important;
 }

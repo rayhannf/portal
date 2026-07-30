@@ -1,50 +1,89 @@
-// কম্পোনেন্ট লোড করার গ্লোবাল ফাংশন
-function loadComponent(elementId, filePath) {
-    fetch(filePath)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(elementId).innerHTML = data;
-        })
-        .catch(error => console.error('Error loading component:', error));
-}
-
-// পেইজ লোড হওয়ার সাথে সাথে Navbar ও Footer কল করা
 document.addEventListener("DOMContentLoaded", () => {
-    loadComponent('navbar-placeholder', './components/navbar.html');
-    loadComponent('footer-placeholder', './components/footer.html');
-});
+    // বর্তমান পেজের নাম বের করা (যেমন: dashboard.html, profile.html)
+    const currentPage = window.location.pathname.split("/").pop() || "dashboard.html";
 
-// Navbar এবং Footer লোড করার ফাংশন
-function loadComponent(elementId, filePath) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        fetch(filePath)
-            .then(response => response.text())
+    // ১. components ফোল্ডার থেকে Navbar লোড করা
+    const navbarContainer = document.getElementById("navbar-placeholder");
+    if (navbarContainer) {
+        fetch("./components/navbar.html")
+            .then(res => {
+                if (!res.ok) throw new Error("Navbar file not found");
+                return res.text();
+            })
             .then(data => {
-                element.innerHTML = data;
-                updateNavbarState(); // Navbar লোড হওয়ার পর মেনু আপডেট করবে
+                navbarContainer.innerHTML = data;
+
+                // --- ক) Navbar-এর Active মেনু হাইলাইট করা ---
+                const navLinks = navbarContainer.querySelectorAll(".m3-nav-pill");
+                navLinks.forEach(link => {
+                    if (link.getAttribute("data-page") === currentPage || link.getAttribute("href") === currentPage) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
+                });
+
+                // --- খ) Logout বাটনের কাজ নিশ্চিত করা ---
+                const logoutBtn = document.getElementById("logout-btn");
+                if (logoutBtn) {
+                    logoutBtn.addEventListener("click", () => {
+                        // লগিন সেশন মুছে ফেলা
+                        localStorage.removeItem("isLoggedIn");
+                        localStorage.removeItem("userPassword");
+                        // লগিন পেজে রিডাইরেক্ট করা
+                        window.location.href = "login.html";
+                    });
+                }
+            })
+            .catch(err => {
+                console.error("Error loading navbar:", err);
+                navbarContainer.innerHTML = "<p style='color:red; text-align:center;'>⚠️ Could not load navbar.html from components/</p>";
             });
     }
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadComponent('navbar-placeholder', './components/navbar.html');
-    loadComponent('footer-placeholder', './components/footer.html');
-});
-
-// লগিন অবস্থা বুঝে মেনু পরিবর্তন করা
-function updateNavbarState() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    if (isLoggedIn) {
-        document.getElementById('nav-login').style.display = 'none';
-        document.getElementById('nav-logout').style.display = 'block';
-        document.getElementById('nav-dashboard').style.display = 'block';
+    // ২. components ফোল্ডার থেকে Footer লোড করা
+    const footerContainer = document.getElementById("footer-placeholder");
+    if (footerContainer) {
+        fetch("./components/footer.html")
+            .then(res => {
+                if (!res.ok) throw new Error("Footer file not found");
+                return res.text();
+            })
+            .then(data => {
+                footerContainer.innerHTML = data;
+            })
+            .catch(err => console.error("Error loading footer:", err));
     }
-}
 
-// লগআউট ফাংশন
-function logout() {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('userName');
-    window.location.href = 'login.html';
-}
+    // ৩. components ফোল্ডার থেকে Sidebar লোড করা ও Active পেজ হাইলাইট করা
+    const sidebarContainer = document.getElementById("sidebar-placeholder");
+    if (sidebarContainer) {
+        fetch("./components/sidebar.html")
+            .then(res => {
+                if (!res.ok) throw new Error("Sidebar file not found");
+                return res.text();
+            })
+            .then(data => {
+                sidebarContainer.innerHTML = data;
+
+                // সাইডবারে ইউজারের নাম বসানো
+                const userName = localStorage.getItem("userName") || "Abdur Rahman";
+                const sidebarName = document.getElementById("sidebar-name");
+                if (sidebarName) sidebarName.innerText = userName;
+
+                // --- সাইডবারের Active মেনু হাইলাইট করা ---
+                const menuLinks = sidebarContainer.querySelectorAll(".m3-sidebar-menu a");
+                menuLinks.forEach(link => {
+                    const pageAttr = link.getAttribute("data-page");
+                    const hrefAttr = link.getAttribute("href");
+
+                    if (pageAttr === currentPage || hrefAttr === currentPage) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
+                });
+            })
+            .catch(err => console.error("Error loading sidebar:", err));
+    }
+});

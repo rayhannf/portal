@@ -1,0 +1,234 @@
+/* =========================================================
+   MATERIAL YOU (MATERIAL 3) - ROUTINE PAGE STYLES
+========================================================= */
+
+/* Today's Focus Hero Banner Card */
+.m3-routine-hero {
+    background-color: var(--md-primary-container, #D7E2FF);
+    border-radius: var(--md-radius-xl, 28px);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.hero-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    background-color: var(--md-surface-card, #FFFFFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.m3-hero-badge {
+    display: inline-block;
+    background-color: #001A40;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-content h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--md-on-primary-container, #001A40);
+    margin: 0 0 6px 0;
+}
+
+.hero-content p {
+    font-size: 0.95rem;
+    color: var(--md-on-primary-container, #001A40);
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Routine Grid Layout */
+.m3-routine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+/* Material 3 28px Day Card */
+.m3-day-card {
+    background-color: var(--md-surface-card, #FFFFFF);
+    border: 1px solid var(--md-outline-variant, #C4C6CF);
+    border-radius: var(--md-radius-xl, 28px);
+    padding: 26px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.m3-day-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: var(--md-primary, #00589B);
+}
+
+.day-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.day-card-header h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--md-on-surface, #1A1C1E);
+    margin: 0;
+}
+
+.m3-day-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background-color: rgba(0, 88, 155, 0.1);
+    color: var(--md-primary, #00589B);
+    padding: 6px 14px;
+    border-radius: 100px;
+}
+
+/* Routine Items List */
+.routine-class-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.routine-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px;
+    border-radius: 18px;
+    background-color: #F8FAFC;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.routine-item:hover {
+    background-color: #FFFFFF;
+    border-color: var(--md-outline-variant, #C4C6CF);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--md-surface-card, #FFFFFF);
+    border: 1px solid #E2E8F0;
+    padding: 8px 10px;
+    border-radius: 12px;
+    min-width: 85px;
+    text-align: center;
+}
+
+.start-time {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--md-primary, #00589B);
+}
+
+.end-time {
+    font-size: 0.75rem;
+    color: #64748B;
+}
+
+.class-details {
+    flex: 1;
+}
+
+.course-code-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--md-primary, #00589B);
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.class-details h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--md-on-surface, #1A1C1E);
+    margin: 0 0 4px 0;
+}
+
+.class-details p {
+    font-size: 0.82rem;
+    color: #475569;
+    margin: 0;
+}
+
+/* Type Badges (Theory vs Lab) */
+.m3-type-pill {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 100px;
+}
+
+.m3-type-pill.theory {
+    background-color: #E0F2FE;
+    color: #0369A1;
+}
+
+.m3-type-pill.lab {
+    background-color: #FEF3C7;
+    color: #B45309;
+}
+
+/* Weekend Box */
+.weekend-box {
+    text-align: center;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.weekend-box h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #1A1C1E;
+    margin: 0;
+}
+
+.weekend-box p {
+    font-size: 0.9rem;
+    color: #64748B;
+    margin: 0;
+    max-width: 280px;
+}
+
+@media (max-width: 600px) {
+    .routine-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .time-box {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,140 @@
+/* =========================================================
+   MATERIAL YOU (MATERIAL 3) - LANDING PAGE STYLES
+========================================================= */
+
+.m3-landing-main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Hero Section Container */
+.m3-hero-container {
+    text-align: center;
+    max-width: 800px;
+    padding: 60px 24px;
+    margin-top: 20px;
+}
+
+/* Pill-shaped subtle badge above title */
+.m3-hero-badge {
+    display: inline-block;
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+    padding: 8px 18px;
+    border-radius: var(--md-radius-pill);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: 0.3px;
+}
+
+.m3-hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--md-primary);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+.m3-hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--md-on-surface-variant);
+    line-height: 1.6;
+    margin-bottom: 36px;
+}
+
+/* Button Container */
+.m3-hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.m3-hero-btn {
+    padding: 16px 36px !important;
+    font-size: 1.05rem !important;
+}
+
+/* M3 Tonal Button Style (Secondary Action) */
+.m3-btn-tonal {
+    background-color: var(--md-secondary-container);
+    color: var(--md-on-secondary-container);
+    padding: 16px 32px;
+    border-radius: var(--md-radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.m3-btn-tonal:hover {
+    background-color: #C3D3ED;
+    transform: translateY(-1px);
+}
+
+/* Feature Cards Grid */
+.m3-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* 28px Material Card */
+.m3-feature-card {
+    background-color: var(--md-surface-card);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-radius-lg);
+    padding: 32px 28px;
+    box-shadow: var(--md-elevation-1);
+    transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+    text-align: left;
+}
+
+.m3-feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--md-elevation-2);
+    border-color: var(--md-primary);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    background-color: var(--md-primary-container);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.m3-feature-card h3 {
+    font-size: 1.3rem;
+    color: var(--md-on-surface);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.m3-feature-card p {
+    color: var(--md-on-surface-variant);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive adjustment for phone screens */
+@media (max-width: 768px) {
+    .m3-hero-title {
+        font-size: 2.2rem;
+    }
+}

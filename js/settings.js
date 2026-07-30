@@ -1,60 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ১. সিকিউরিটি চেক
-    if (localStorage.getItem('isLoggedIn') !== 'true') {
-        window.location.href = 'login.html';
+    // ১. লগিন করা না থাকলে লগিন পেজে পাঠিয়ে দেবে
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "login.html";
         return;
     }
 
-    // ২. সাইডবারে নাম বসানো
-    const userName = localStorage.getItem('userName');
-    if (userName && document.getElementById('sidebar-name')) {
-        document.getElementById('sidebar-name').innerText = userName;
-    }
+    // ২. সাইডবারে নাম বসানো (সাইডবার লোড হওয়ার পর)
+    setTimeout(() => {
+        const userName = localStorage.getItem("userName") || "Abdur Rahman";
+        const sidebarName = document.getElementById("sidebar-name");
+        if (sidebarName) sidebarName.innerText = userName;
+    }, 100);
 
-    // ৩. পাসওয়ার্ড পরিবর্তনের লজিক
-    const passForm = document.getElementById('password-form');
-    const msg = document.getElementById('pass-message');
+    // ৩. পাসওয়ার্ড পরিবর্তনের ফর্ম লজিক
+    const passForm = document.getElementById("password-form");
+    const msg = document.getElementById("pass-message");
 
     if (passForm) {
-        passForm.addEventListener('submit', (e) => {
+        passForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const currentPass = document.getElementById('current-pass').value;
-            const newPass = document.getElementById('new-pass').value;
-            const confirmPass = document.getElementById('confirm-pass').value;
+            const currentPass = document.getElementById("current-pass").value;
+            const newPass = document.getElementById("new-pass").value;
+            const confirmPass = document.getElementById("confirm-pass").value;
 
-            // LocalStorage থেকে আসল পাসওয়ার্ড নেওয়া (না থাকলে ডিফল্ট 'pass123')
-            const storedPass = localStorage.getItem('userPassword') || 'pass123';
+            // LocalStorage থেকে বর্তমান পাসওয়ার্ড নেওয়া (না থাকলে 'pass123')
+            const storedPass = localStorage.getItem("userPassword") || "pass123";
 
             // ভ্যালিডেশন চেক
             if (currentPass !== storedPass) {
-                msg.style.color = 'red';
-                msg.innerText = "❌ Current password is incorrect!";
+                showMessage("❌ Current password is incorrect!", "error");
                 return;
             }
 
             if (newPass.length < 6) {
-                msg.style.color = 'red';
-                msg.innerText = "❌ New password must be at least 6 characters!";
+                showMessage("❌ New password must be at least 6 characters!", "error");
                 return;
             }
 
             if (newPass !== confirmPass) {
-                msg.style.color = 'red';
-                msg.innerText = "❌ New passwords do not match!";
+                showMessage("❌ New passwords do not match!", "error");
                 return;
             }
 
-            // পাসওয়ার্ড আপডেট করা
-            localStorage.setItem('userPassword', newPass);
-            msg.style.color = 'green';
-            msg.innerText = "✅ Password updated successfully!";
+            // নতুন পাসওয়ার্ড ব্রাউজারে সেভ করা
+            localStorage.setItem("userPassword", newPass);
+            showMessage("✅ Password updated successfully! You can now use this password to login.", "success");
             passForm.reset();
-
-            // ৩ সেকেন্ড পর মেসেজ মুছে দেওয়া
-            setTimeout(() => {
-                msg.innerText = "";
-            }, 3000);
         });
+    }
+
+    function showMessage(text, type) {
+        if (!msg) return;
+        msg.innerText = text;
+        msg.style.display = "block";
+        
+        if (type === "error") {
+            msg.style.color = "#DC2626";
+            msg.style.backgroundColor = "#FEF2F2";
+            msg.style.border = "1px solid #FECACA";
+        } else {
+            msg.style.color = "#16A34A";
+            msg.style.backgroundColor = "#DCFCE7";
+            msg.style.border = "1px solid #BBF7D0";
+        }
+
+        setTimeout(() => {
+            msg.style.display = "none";
+        }, 4000);
     }
 });

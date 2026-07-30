@@ -13,28 +13,18 @@ function logout() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // ১. সিকিউরিটি চেক: ইউজার লগিন করা আছে কি না
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    
-    if (isLoggedIn !== 'true') {
-        // লগিন করা না থাকলে জোর করে লগিন পেজে পাঠিয়ে দেবে
-        window.location.href = 'login.html';
+    // ১. লগিন চেক (লগিন না থাকলে login.html-এ পাঠাবে)
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "login.html";
+        return;
     }
 
-    // ২. ডাইনামিক নাম দেখানো
-    const userName = localStorage.getItem('userName');
-    
-    if (userName) {
-        // ওয়েলকাম মেসেজে নাম বসানো
-        const welcomeMessage = document.getElementById('welcome-message');
-        if (welcomeMessage) {
-            welcomeMessage.innerText = `Welcome back, ${userName}!`;
-        }
-        
-        // সাইডবারে নাম বসানো
-        const sidebarName = document.getElementById('sidebar-name');
-        if (sidebarName) {
-            sidebarName.innerText = userName;
-        }
-    }
+    // ২. সাইডবার এবং হেডারে ইউজারের নাম সেট করা
+    const userName = localStorage.getItem("userName") || "Student";
+
+    const sidebarName = document.getElementById("sidebar-name");
+    if (sidebarName) sidebarName.innerText = userName;
+
+    const welcomeText = document.getElementById("welcome-text");
+    if (welcomeText) welcomeText.innerText = `Welcome back, ${userName}!`;
 });
