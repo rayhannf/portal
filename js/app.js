@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 sidebarContainer.innerHTML = data;
 
                 // সাইডবারে ইউজারের নাম বসানো
-                const userName = localStorage.getItem("userName") || "Abdur Rahman";
+                const userName = localStorage.getItem("userName") || "Rayhan Shorif";
                 const sidebarName = document.getElementById("sidebar-name");
                 if (sidebarName) sidebarName.innerText = userName;
 

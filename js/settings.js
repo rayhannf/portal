@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ২. সাইডবারে নাম বসানো (সাইডবার লোড হওয়ার পর)
     setTimeout(() => {
-        const userName = localStorage.getItem("userName") || "Abdur Rahman";
+        const userName = localStorage.getItem("userName") || "Rayhan Shorif";
         const sidebarName = document.getElementById("sidebar-name");
         if (sidebarName) sidebarName.innerText = userName;
     }, 100);
 
-    // ৩. পাসওয়ার্ড পরিবর্তনের ফর্ম লজিক
+    // ৩. পাসওয়ার্ড পরিবর্তনের ফর্ম লজিক
     const passForm = document.getElementById("password-form");
     const msg = document.getElementById("pass-message");
 

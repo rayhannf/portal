@@ -1,69 +1,65 @@
+// ১. এডিট ফর্ম খোলার এবং বন্ধ করার ফাংশন
+function toggleEditForm() {
+    const editCard = document.getElementById("edit-profile-card");
+    if (editCard) {
+        if (editCard.style.display === "none") {
+            editCard.style.display = "block";
+            // ফর্মে বর্তমান ডেটাগুলো আগে থেকেই বসিয়ে দেওয়া
+            document.getElementById("edit-name").value = localStorage.getItem("userName") || "Rayhan Shorif";
+            document.getElementById("edit-id").value = localStorage.getItem("userId") || "202531073";
+            document.getElementById("edit-email").value = localStorage.getItem("userEmail") || "rayhan.shorif@university.edu";
+        } else {
+            editCard.style.display = "none";
+        }
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    // ১. সিকিউরিটি চেক: ইউজার লগিন করা আছে কি না
-    if (localStorage.getItem('isLoggedIn') !== 'true') {
-        window.location.href = 'login.html';
+    // সিকিউরিটি চেক
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "login.html";
         return;
     }
 
-    // ২. LocalStorage থেকে ইউজারের নাম নেওয়া
-    const userName = localStorage.getItem('userName') || "Abdur Rahman";
+    // ২. LocalStorage থেকে ডেটা লোড করা (না থাকলে ডিফল্ট ডেটা দেখাবে)
+    const userName = localStorage.getItem("userName") || "Rayhan Shorif";
+    const userId = localStorage.getItem("userId") || "202531073";
+    const userEmail = localStorage.getItem("userEmail") || "rayhan.shorif@university.edu";
 
-    // সাইডবারে ইউজারের নাম বসানো
-    const sidebarName = document.getElementById('sidebar-name');
-    if (sidebarName) {
-        sidebarName.innerText = userName;
-    }
+    // ৩. প্রোফাইল পেজের বিভিন্ন জায়গায় ডেটা বসানো
+    const profileFullName = document.getElementById("profile-full-name");
+    if (profileFullName) profileFullName.innerText = userName;
 
-    // ৩. students.json থেকে ইউজারের বিস্তারিত তথ্য লোড করা
-    fetch('./data/students.json')
-        .then(response => response.json())
-        .then(students => {
-            // লগিন করা স্টুডেন্টের ডেটা খুঁজে বের করা
-            const currentStudent = students.find(s => s.name === userName) || students[0];
+    // হিরো কার্ডের ID pill আপডেট করা (যদি ক্লাস বা আইডি থাকে)
+    const idPill = document.querySelector(".m3-id-pill");
+    if (idPill) idPill.innerText = `ID: ${userId}`;
 
-            if (currentStudent) {
-                // টপ হিরো কার্ডের (Banner) তথ্য বসানো
-                const profileFullName = document.getElementById('profile-full-name');
-                if (profileFullName) profileFullName.innerText = currentStudent.name || userName;
+    // পার্সোনাল ইনফরমেশন লিস্টের ইমেইল আপডেট করা
+    const emailValue = document.querySelector(".m3-info-list li:first-child .info-value");
+    if (emailValue) emailValue.innerText = userEmail;
 
-                // যদি তোমার HTML-এ এই আইডিগুলো থাকে, তবে সেগুলোতেও ডেটা বসবে:
-                if (document.getElementById('profile-id')) {
-                    document.getElementById('profile-id').innerText = `ID: ${currentStudent.id || "2026-CS-101"}`;
-                }
-                if (document.getElementById('profile-dept')) {
-                    document.getElementById('profile-dept').innerText = currentStudent.department || "Computer Science & Engineering";
-                }
+    // ৪. ফর্ম সাবমিট হলে নতুন ডেটা LocalStorage-এ সেভ করা
+    const editForm = document.getElementById("edit-profile-form");
+    if (editForm) {
+        editForm.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-                // পার্সোনাল ইনফরমেশন বসানো
-                if (document.getElementById('profile-email')) {
-                    document.getElementById('profile-email').innerText = currentStudent.email || "abdur.rahman@university.edu";
-                }
-                if (document.getElementById('profile-phone')) {
-                    document.getElementById('profile-phone').innerText = currentStudent.phone || "+880 1711-223344";
-                }
-                if (document.getElementById('profile-blood')) {
-                    document.getElementById('profile-blood').innerText = currentStudent.bloodGroup || "O+";
-                }
-                if (document.getElementById('profile-address')) {
-                    document.getElementById('profile-address').innerText = currentStudent.address || "Dhaka, Bangladesh";
-                }
+            const newName = document.getElementById("edit-name").value.trim();
+            const newId = document.getElementById("edit-id").value.trim();
+            const newEmail = document.getElementById("edit-email").value.trim();
 
-                // একাডেমিক ইনফরমেশন বসানো
-                if (document.getElementById('profile-program')) {
-                    document.getElementById('profile-program').innerText = currentStudent.program || "B.Sc. in Computer Science";
-                }
-                if (document.getElementById('profile-semester')) {
-                    document.getElementById('profile-semester').innerText = currentStudent.semester || "6th Semester";
-                }
-                if (document.getElementById('profile-cgpa')) {
-                    document.getElementById('profile-cgpa').innerText = currentStudent.cgpa || "3.75";
-                }
+            if (newName && newId && newEmail) {
+                // LocalStorage-এ সেভ করা
+                localStorage.setItem("userName", newName);
+                localStorage.setItem("userId", newId);
+                localStorage.setItem("userEmail", newEmail);
+
+                alert("✅ Profile updated successfully!");
+                // পেজ রিফ্রেশ করা যাতে সব জায়গায় নতুন নাম চলে আসে
+                window.location.reload();
+            } else {
+                alert("⚠️ Please fill in all fields.");
             }
-        })
-        .catch(error => {
-            console.error("Error loading profile data:", error);
-            // JSON লোড না হলেও যেন অন্তত ইউজারের নামটা হিরো কার্ডে দেখায়
-            const profileFullName = document.getElementById('profile-full-name');
-            if (profileFullName) profileFullName.innerText = userName;
         });
+    }
 });
